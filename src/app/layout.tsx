@@ -3,7 +3,9 @@ import { Archivo, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFab from "@/components/WhatsAppFab";
-import { services } from "@/lib/content";
+import JsonLd from "@/components/JsonLd";
+import { jsonLdGraph, professionalServiceNode, webSiteNode } from "@/lib/schema";
+import { absoluteUrl, metadataBase, robotsMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -27,34 +29,25 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
-/**
- * Alan adı henüz belli olmadığı için metadataBase yalnızca ortam değişkeni
- * tanımlıysa kullanılır; sahte bir production domaini yazılmadı.
- */
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const defaultTitle = `${site.name} | ${site.tagline}`;
 
 export const metadata: Metadata = {
-  ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
-  title: `${site.name} | ${site.tagline}`,
+  ...metadataBase(),
+  title: {
+    default: defaultTitle,
+    template: `%s | ${site.name}`,
+  },
   description: site.description,
   applicationName: site.name,
-  keywords: [
-    "Amasya harita",
-    "Amasya kadastro",
-    "LİHKAB Amasya",
-    "aplikasyon",
-    "cins değişikliği",
-    "parsel sınır tespiti",
-    "plankote",
-    "harita mühendisi Amasya",
-  ],
   authors: [{ name: site.name }],
+  publisher: site.name,
   openGraph: {
     type: "website",
     locale: "tr_TR",
     siteName: site.name,
-    title: `${site.name} | ${site.tagline}`,
+    title: defaultTitle,
     description: site.description,
+    url: absoluteUrl("/") ?? undefined,
     images: [
       {
         url: "/og-aslanturk-harita.png",
@@ -66,11 +59,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} | ${site.tagline}`,
+    title: defaultTitle,
     description: site.description,
     images: ["/og-aslanturk-harita.png"],
   },
-  robots: { index: true, follow: true },
+  // Alan adı bağlanana kadar noindex; helper tek kaynaktan karar verir.
+  ...robotsMeta(),
 };
 
 export const viewport: Viewport = {
@@ -79,32 +73,7 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-/** Yalnızca doğrulanmış firma bilgileri kullanıldı. */
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: site.name,
-  description: site.description,
-  telephone: site.phone.international,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: site.address.street,
-    postalCode: site.address.postalCode,
-    addressLocality: site.address.district,
-    addressRegion: site.address.region,
-    addressCountry: site.address.country,
-  },
-  areaServed: { "@type": "AdministrativeArea", name: "Amasya" },
-  sameAs: [site.social.instagram, site.social.facebook],
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Harita ve kadastro hizmetleri",
-    itemListElement: services.map((service) => ({
-      "@type": "Offer",
-      itemOffered: { "@type": "Service", name: service.title },
-    })),
-  },
-};
+const siteGraph = jsonLdGraph([professionalServiceNode(), webSiteNode()]);
 
 export default function RootLayout({
   children,
@@ -112,6 +81,15 @@ export default function RootLayout({
   return (
     <html lang="tr" className={`${archivo.variable} ${plexSans.variable} ${plexMono.variable}`}>
       <body>
+        {/*
+          Scroll animasyonları yalnızca JavaScript çalışırken devreye girer.
+          Bu sınıf olmadan kartlar hiçbir zaman gizlenmez (progressive enhancement).
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add("js")`,
+          }}
+        />
         <a className="skip-link" href="#icerik">
           İçeriğe geç
         </a>
@@ -119,10 +97,7 @@ export default function RootLayout({
         <main id="icerik">{children}</main>
         <Footer />
         <WhatsAppFab />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLd data={siteGraph} />
       </body>
     </html>
   );

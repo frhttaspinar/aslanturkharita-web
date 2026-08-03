@@ -54,10 +54,15 @@ export const site = {
   },
 } as const;
 
+/**
+ * Bağlantılar alt sayfalardan da çalışması için route uyumlu tutulur:
+ * blog sayfalarında "#hizmetler" yerine "/#hizmetler" gerekir.
+ */
 export const navItems = [
-  { label: "Ana Sayfa", href: "#ust" },
-  { label: "Hizmetler", href: "#hizmetler" },
-  { label: "Hakkımızda", href: "#hakkimizda" },
-  { label: "Çalışmalarımız", href: "#calismalarimiz" },
-  { label: "İletişim", href: "#iletisim" },
+  { label: "Ana Sayfa", href: "/" },
+  { label: "Hizmetler", href: "/#hizmetler" },
+  { label: "Hakkımızda", href: "/#hakkimizda" },
+  { label: "Çalışmalarımız", href: "/#calismalarimiz" },
+  { label: "Blog", href: "/blog" },
+  { label: "İletişim", href: "/#iletisim" },
 ] as const;

@@ -1,5 +1,6 @@
 import { services } from "@/lib/content";
 import { ServiceIcon } from "./Icons";
+import Reveal from "./Reveal";
 
 export default function Services() {
   return (
@@ -15,17 +16,19 @@ export default function Services() {
           </p>
         </div>
 
-        <ul className="services__grid">
-          {services.map((service) => (
-            <li className="svc" key={service.id}>
-              <span className="svc__icon">
-                <ServiceIcon name={service.icon} />
-              </span>
-              <h3 className="svc__title">{service.title}</h3>
-              <p className="svc__text">{service.description}</p>
-            </li>
-          ))}
-        </ul>
+        <Reveal>
+          <ul className="services__grid">
+            {services.map((service) => (
+              <li className="svc reveal-item" key={service.id}>
+                <span className="svc__icon">
+                  <ServiceIcon name={service.icon} />
+                </span>
+                <h3 className="svc__title">{service.title}</h3>
+                <p className="svc__text">{service.description}</p>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
     </section>
   );

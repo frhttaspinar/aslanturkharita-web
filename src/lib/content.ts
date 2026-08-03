@@ -100,6 +100,33 @@ export const processSteps: ProcessStep[] = [
   },
 ];
 
+/**
+ * Ana sayfadaki görünür SSS. Cevaplar blog yazılarındaki cümlelerin kopyası
+ * değildir; kesin süre veya sonuç garantisi verilmez.
+ */
+export const homeFaq = [
+  {
+    question: "LİHKAB nedir?",
+    answer:
+      "Lisanslı harita kadastro bürosunun kısaltmasıdır. Kadastro teknik hizmetlerini, Tapu ve Kadastro Genel Müdürlüğü’nün belirlediği çerçevede yürütmek üzere lisans almış harita mühendislerince işletilir. Aslantürk Harita resmî bir LİHKAB ofisidir.",
+  },
+  {
+    question: "Aplikasyon işlemi ne için yapılır?",
+    answer:
+      "Tapuda kayıtlı parsel sınırlarının arazide zemine uygulanması için yapılır. Yapı, duvar veya bahçe düzenlemesinden önce sınırın nereden geçtiğini net biçimde görmenizi sağlar.",
+  },
+  {
+    question: "Parsel sınırının belirlenmesi için hangi bilgiler gerekir?",
+    answer:
+      "İl, ilçe, mahalle veya köy bilgisiyle birlikte ada ve parsel numarası gerekir; bu bilgiler tapu belgenizde yer alır. Talebin taşınmaz maliki ya da yetkili temsilcisi tarafından yapılması gerekir. İstenen belgeler işlem türüne göre değişebilir.",
+  },
+  {
+    question: "Harita ve kadastro işlemleri ne kadar sürer?",
+    answer:
+      "Tek bir standart süre yoktur. Süre; işlem türüne, taşınmazın durumuna, evrakın tam olmasına ve ilgili kurumun incelemesine göre değişir. Durumunuzu WhatsApp’tan ya da telefonla iletirseniz adımları ve öngörümüzü baştan anlatalım.",
+  },
+];
+
 export type GalleryItem = {
   src: string;
   alt: string;

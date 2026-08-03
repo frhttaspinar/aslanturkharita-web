@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { navItems, site } from "@/lib/site";
 import { PhoneIcon, WhatsAppIcon } from "./Icons";
@@ -52,7 +53,7 @@ export default function Header() {
     <>
       <header className="header" data-scrolled={scrolled}>
         <div className="wrap header__inner">
-          <a className="brand" href="#ust" onClick={close} aria-label={`${site.name} — sayfa başı`}>
+          <Link className="brand" href="/" onClick={close} aria-label={`${site.name} — ana sayfa`}>
             <Image
               className="brand__mark"
               src={site.logo.mark}
@@ -65,13 +66,13 @@ export default function Header() {
               <span className="brand__name">Aslantürk Harita</span>
               <span className="brand__note">{site.legalNote}</span>
             </span>
-          </a>
+          </Link>
 
           <nav className="nav" aria-label="Ana menü">
             {navItems.map((item) => (
-              <a key={item.href} className="nav__link" href={item.href}>
+              <Link key={item.href} className="nav__link" href={item.href}>
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -107,9 +108,9 @@ export default function Header() {
       <div className="menu" id="mobil-menu" data-open={open}>
         <nav aria-label="Mobil menü">
           {navItems.map((item) => (
-            <a key={item.href} className="menu__link" href={item.href} onClick={close}>
+            <Link key={item.href} className="menu__link" href={item.href} onClick={close}>
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 

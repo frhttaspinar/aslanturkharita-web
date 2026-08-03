@@ -629,19 +629,56 @@ section[id] {
 }
 
 .svc {
+  position: relative;
   background: var(--paper-raised);
   padding: clamp(20px, 2.4vw, 28px);
-  transition: background-color 0.18s ease;
 }
 
-.svc:hover {
-  background: var(--accent-soft);
+/* Kartın üstünde açılan ince bordo ölçü çizgisi. */
+.svc::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
 }
 
 .svc__icon {
   color: var(--accent);
   display: block;
   margin-bottom: 14px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .svc {
+    transition: background-color 0.22s ease, transform 0.26s cubic-bezier(0.2, 0.7, 0.2, 1),
+      box-shadow 0.26s ease;
+  }
+
+  .svc::before {
+    transition: width 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .svc__icon {
+    transition: transform 0.26s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .svc:hover {
+    z-index: 1;
+    background: var(--accent-soft);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(25, 23, 22, 0.07);
+  }
+
+  .svc:hover::before {
+    width: 36px;
+  }
+
+  .svc:hover .svc__icon {
+    transform: translateY(-2px) scale(1.05);
+  }
 }
 
 .svc__title {
@@ -1008,9 +1045,15 @@ a.contact__value:hover {
   padding-block: clamp(44px, 5vw, 68px);
 }
 
+.footer__brand-plate {
+  display: inline-flex;
+  padding: 16px 20px;
+  background: var(--paper);
+  border-radius: var(--radius-lg);
+}
+
 .footer__brand-mark {
-  filter: brightness(0) invert(1);
-  opacity: 0.92;
+  display: block;
 }
 
 .footer__about {
@@ -1063,10 +1106,25 @@ a.contact__value:hover {
   border-color: rgba(255, 255, 255, 0.45);
 }
 
+.footer__credit a {
+  /* Satır yüksekliğini bozmadan dokunma alanını büyütür. */
+  padding-block: 8px;
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(255, 255, 255, 0.45);
+  transition: text-decoration-color 0.18s ease;
+}
+
+.footer__credit a:hover {
+  text-decoration-color: #fff;
+}
+
 .footer__bottom {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 20px;
+  align-items: center;
+  gap: 10px 22px;
   justify-content: space-between;
   padding-block: 22px;
   padding-bottom: calc(96px + env(safe-area-inset-bottom));
@@ -1135,6 +1193,458 @@ a.contact__value:hover {
   }
 }
 
+/* ------------------------------------------------------------ sayfa yolu -- */
+
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.crumbs a {
+  display: inline-block;
+  padding: 8px 0;
+}
+
+.crumbs a:hover {
+  color: var(--accent);
+}
+
+.crumbs [aria-current] {
+  color: var(--ink);
+}
+
+/* ---------------------------------------------------------- blog kartı -- */
+
+.post-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(18px, 2.4vw, 28px);
+}
+
+.post-card {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.post-card__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: clamp(18px, 2vw, 22px);
+}
+
+.post-card__frame {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  background: var(--stone-deep);
+  overflow: hidden;
+}
+
+.post-card__frame img {
+  object-fit: cover;
+}
+
+.post-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  align-items: baseline;
+  padding: 18px clamp(18px, 2vw, 22px) 0;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.post-card__category {
+  color: var(--accent);
+}
+
+.post-card__title {
+  margin: 10px clamp(18px, 2vw, 22px) 0;
+  font-size: 1.1rem;
+  line-height: 1.28;
+}
+
+.post-card__excerpt {
+  margin: 10px clamp(18px, 2vw, 22px) 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.post-card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: auto clamp(18px, 2vw, 22px) 0;
+  padding-top: 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .post-card {
+    transition: border-color 0.2s ease, box-shadow 0.26s ease;
+  }
+
+  .post-card__frame img {
+    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .post-card__more svg {
+    transition: transform 0.25s ease;
+  }
+
+  .post-card:hover {
+    border-color: var(--stone-deep);
+    box-shadow: 0 8px 18px rgba(25, 23, 22, 0.06);
+  }
+
+  .post-card:hover .post-card__frame img {
+    transform: scale(1.03);
+  }
+
+  .post-card:hover .post-card__more svg {
+    transform: translateX(3px);
+  }
+}
+
+@media (min-width: 700px) {
+  .post-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .post-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .post-grid--two {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------- blog yazısı -- */
+
+.post__inner {
+  max-width: 780px;
+  margin-inline: auto;
+}
+
+.post__header {
+  margin-bottom: clamp(24px, 3vw, 34px);
+}
+
+.post__title {
+  margin-top: 8px;
+  font-size: clamp(1.85rem, 1.25rem + 2.4vw, 2.85rem);
+}
+
+.post__byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.post__figure {
+  margin: 0 0 clamp(26px, 3vw, 38px);
+  padding: 10px;
+}
+
+.post__cover {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.post__cover img {
+  object-fit: cover;
+}
+
+/* Makale tipografisi */
+.prose {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--ink-2);
+}
+
+.prose > * + * {
+  margin-top: 18px;
+}
+
+.prose h2 {
+  margin-top: clamp(32px, 3.4vw, 44px);
+  font-size: clamp(1.35rem, 1.1rem + 0.9vw, 1.7rem);
+}
+
+.prose h3 {
+  margin-top: 26px;
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.prose a:hover {
+  color: var(--accent-deep);
+}
+
+.prose__list {
+  display: grid;
+  gap: 10px;
+}
+
+.prose__list li {
+  position: relative;
+  padding-left: 22px;
+}
+
+.prose__list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.62em;
+  width: 7px;
+  height: 7px;
+  border: 1.5px solid var(--accent);
+  transform: rotate(45deg);
+}
+
+.prose__list--ordered {
+  counter-reset: adim;
+}
+
+.prose__list--ordered li {
+  counter-increment: adim;
+  padding-left: 36px;
+}
+
+.prose__list--ordered li::before {
+  content: counter(adim, decimal-leading-zero);
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  border: 0;
+  transform: none;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.prose__note {
+  margin-top: 26px;
+  padding: 18px 20px;
+  background: var(--accent-soft);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.prose__note-title {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.prose__note p {
+  font-size: 0.95rem;
+}
+
+.prose__sources {
+  margin-top: clamp(32px, 3.4vw, 44px);
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.prose__sources h2 {
+  margin-top: 0;
+  font-size: 1.05rem;
+}
+
+.prose__sources ul {
+  display: grid;
+  gap: 4px;
+  margin-top: 10px;
+  font-size: 0.94rem;
+}
+
+/* Kaynak bağlantıları cümle içinde değil, tek başına durur: dokunma alanı verilir. */
+.prose__sources a {
+  display: inline-block;
+  padding-block: 7px;
+}
+
+.post__faq {
+  margin-top: clamp(34px, 4vw, 48px);
+}
+
+.post__faq h2 {
+  margin-bottom: 14px;
+  font-size: clamp(1.35rem, 1.1rem + 0.9vw, 1.7rem);
+}
+
+.post__cta {
+  margin-top: clamp(34px, 4vw, 48px);
+  padding: clamp(22px, 3vw, 30px);
+  background: var(--stone);
+  border-radius: var(--radius-lg);
+}
+
+.post__cta-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.post__cta-text {
+  margin-top: 10px;
+  color: var(--ink-2);
+  font-size: 0.98rem;
+}
+
+.post__cta-text a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.post__cta .btn-row {
+  margin-top: 20px;
+}
+
+.related {
+  background: var(--stone);
+}
+
+.related .post-card {
+  background: var(--paper);
+}
+
+/* ------------------------------------------------------------------ sss -- */
+
+.faq-section {
+  background: var(--stone);
+}
+
+.faq-section__inner {
+  display: grid;
+  gap: clamp(24px, 3vw, 48px);
+}
+
+.faq {
+  border-top: 1px solid var(--line);
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 54px;
+  padding: 15px 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq__sign {
+  position: relative;
+  flex: none;
+  width: 14px;
+  height: 14px;
+}
+
+.faq__sign::before,
+.faq__sign::after {
+  content: "";
+  position: absolute;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.faq__sign::before {
+  left: 0;
+  top: 6px;
+  width: 14px;
+  height: 2px;
+}
+
+.faq__sign::after {
+  left: 6px;
+  top: 0;
+  width: 2px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.faq__item[open] .faq__sign::after {
+  transform: scaleY(0);
+}
+
+.faq__answer {
+  margin: 0;
+  padding-bottom: 18px;
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+@media (min-width: 900px) {
+  .faq-section__inner {
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: start;
+  }
+
+  .faq-section__head {
+    margin-bottom: 0;
+  }
+}
+
 /* ------------------------------------------------------------ hareketler -- */
 
 @keyframes rise {
@@ -1159,6 +1669,53 @@ a.contact__value:hover {
   animation-delay: 0.16s;
 }
 
+/* Hizmet kartlarının görünürlük animasyonu.
+   Gizleme yalnızca <html class="js"> altında geçerlidir; JavaScript yoksa
+   kartlar hiçbir zaman gizlenmez. */
+.js [data-reveal] .reveal-item {
+  opacity: 0;
+}
+
+.js [data-reveal][data-revealed="true"] .reveal-item {
+  opacity: 1;
+  animation: card-rise 0.52s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+
+@keyframes card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+.js [data-reveal][data-revealed="true"] .reveal-item:nth-child(2) {
+  animation-delay: 70ms;
+}
+.js [data-reveal][data-revealed="true"] .reveal-item:nth-child(3) {
+  animation-delay: 140ms;
+}
+.js [data-reveal][data-revealed="true"] .reveal-item:nth-child(4) {
+  animation-delay: 210ms;
+}
+.js [data-reveal][data-revealed="true"] .reveal-item:nth-child(5) {
+  animation-delay: 280ms;
+}
+.js [data-reveal][data-revealed="true"] .reveal-item:nth-child(6) {
+  animation-delay: 350ms;
+}
+.js [data-reveal][data-revealed="true"] .reveal-item:nth-child(7) {
+  animation-delay: 420ms;
+}
+.js [data-reveal][data-revealed="true"] .reveal-item:nth-child(8) {
+  animation-delay: 490ms;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1169,6 +1726,23 @@ a.contact__value:hover {
   *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
     transition-duration: 0.001ms !important;
+  }
+
+  /* Hareket kapalıyken kartlar doğrudan görünür; transform kullanılmaz. */
+  .js [data-reveal] .reveal-item,
+  .js [data-reveal][data-revealed="true"] .reveal-item {
+    opacity: 1;
+    animation: none;
+  }
+
+  .svc:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .svc:hover .svc__icon {
+    transform: none;
   }
 }

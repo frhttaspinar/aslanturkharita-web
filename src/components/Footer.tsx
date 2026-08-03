@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { services } from "@/lib/content";
 import { navItems, site } from "@/lib/site";
 import { FacebookIcon, InstagramIcon } from "./Icons";
@@ -12,15 +13,19 @@ export default function Footer() {
     <footer className="footer">
       <div className="wrap footer__top">
         <div>
-          <Image
-            className="footer__brand-mark"
-            src={site.logo.lockup}
-            alt={`${site.name} logosu`}
-            width={528}
-            height={549}
-            style={{ width: 108, height: "auto" }}
-            sizes="108px"
-          />
+          {/* Logo koyu zeminde okunabilsin diye açık bir plaka üzerinde,
+              kendi renkleriyle gösterilir. */}
+          <span className="footer__brand-plate">
+            <Image
+              className="footer__brand-mark"
+              src={site.logo.lockup}
+              alt={`${site.name} logosu`}
+              width={528}
+              height={549}
+              style={{ width: 96, height: "auto" }}
+              sizes="96px"
+            />
+          </span>
           <p className="footer__about">{about}</p>
           <div className="footer__socials">
             <a
@@ -49,7 +54,7 @@ export default function Footer() {
           <ul className="footer__list">
             {navItems.map((item) => (
               <li key={item.href}>
-                <a href={item.href}>{item.label}</a>
+                <Link href={item.href}>{item.label}</Link>
               </li>
             ))}
           </ul>
@@ -60,7 +65,7 @@ export default function Footer() {
           <ul className="footer__list">
             {services.map((service) => (
               <li key={service.id}>
-                <a href="#hizmetler">{service.title}</a>
+                <Link href="/#hizmetler">{service.title}</Link>
               </li>
             ))}
           </ul>
@@ -91,6 +96,17 @@ export default function Footer() {
           © {year} {site.name}. Tüm hakları saklıdır.
         </span>
         <span>{site.legalNote} · Amasya</span>
+        <span className="footer__credit">
+          Web tasarım ve geliştirme:{" "}
+          <a
+            href="https://dokuyazilim.com"
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            aria-label="Doku Yazılım web sitesini yeni sekmede aç"
+          >
+            Doku Yazılım
+          </a>
+        </span>
       </div>
     </footer>
   );

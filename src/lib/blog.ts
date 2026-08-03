@@ -332,9 +332,9 @@ const posts: BlogPostInput[] = [
     publishedAt: "2026-08-03",
     author: "Aslantürk Harita",
     category: "Rehber",
-    coverImage: "/ekip-arazi-calismasi.jpg",
+    coverImage: "/drone-ucus-plani.jpg",
     coverAlt:
-      "Aslantürk Harita ekibi arazide GNSS ölçüm direğiyle kadastro teknik hizmeti yürütürken",
+      "Arazi üzerinde uçuş planı görüntülenen insansız hava aracı kumandasıyla yürütülen harita çalışması",
     sections: [
       {
         type: "paragraph",

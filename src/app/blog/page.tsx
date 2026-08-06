@@ -5,18 +5,42 @@ import JsonLd from "@/components/JsonLd";
 import { PhoneIcon, WhatsAppIcon } from "@/components/Icons";
 import { blogMeta, blogPosts } from "@/lib/blog";
 import { breadcrumbNode, jsonLdGraph, webPageNode } from "@/lib/schema";
-import { canonicalFor } from "@/lib/seo";
+import { absoluteUrl, canonicalFor } from "@/lib/seo";
 import { site } from "@/lib/site";
+
+const blogUrl = absoluteUrl("/blog") ?? undefined;
+const blogImage = absoluteUrl("/og-aslanturk-harita.png") ?? "/og-aslanturk-harita.png";
 
 export const metadata: Metadata = {
   title: blogMeta.title,
   description: blogMeta.description,
   ...canonicalFor("/blog"),
-  openGraph: {
-    type: "website",
-    title: `${blogMeta.title} | ${site.name}`,
-    description: blogMeta.description,
-  },
+  openGraph: blogUrl
+    ? {
+        type: "website",
+        locale: "tr_TR",
+        siteName: site.name,
+        title: `${blogMeta.title} | ${site.name}`,
+        description: blogMeta.description,
+        url: blogUrl,
+        images: [
+          {
+            url: blogImage,
+            width: 1200,
+            height: 630,
+            alt: `${site.name} — ${blogMeta.title}`,
+          },
+        ],
+      }
+    : null,
+  twitter: blogUrl
+    ? {
+        card: "summary_large_image",
+        title: `${blogMeta.title} | ${site.name}`,
+        description: blogMeta.description,
+        images: [blogImage],
+      }
+    : null,
 };
 
 const graph = jsonLdGraph([

@@ -10,7 +10,7 @@ import { PhoneIcon, WhatsAppIcon } from "@/components/Icons";
 import { blogPosts, getPost, relatedPosts } from "@/lib/blog";
 import { formatDate } from "@/lib/date";
 import { blogPostingNode, breadcrumbNode, jsonLdGraph } from "@/lib/schema";
-import { canonicalFor } from "@/lib/seo";
+import { absoluteUrl, canonicalFor } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 type PageProps = { params: Promise<{ slug: string }> };
@@ -27,26 +27,37 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: "Yazı bulunamadı" };
   }
 
+  const pagePath = `/blog/${post.slug}`;
+  const pageUrl = absoluteUrl(pagePath) ?? undefined;
+  const coverUrl = absoluteUrl(post.coverImage) ?? post.coverImage;
+
   return {
     title: post.seoTitle,
     description: post.description,
-    ...canonicalFor(`/blog/${post.slug}`),
-    openGraph: {
-      type: "article",
-      title: `${post.seoTitle} | ${site.name}`,
-      description: post.description,
-      publishedTime: post.publishedAt,
-      modifiedTime: post.updatedAt ?? post.publishedAt,
-      authors: [post.author],
-      section: post.category,
-      images: [{ url: post.coverImage, alt: post.coverAlt }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${post.seoTitle} | ${site.name}`,
-      description: post.description,
-      images: [post.coverImage],
-    },
+    ...canonicalFor(pagePath),
+    openGraph: pageUrl
+      ? {
+          type: "article",
+          locale: "tr_TR",
+          siteName: site.name,
+          title: `${post.seoTitle} | ${site.name}`,
+          description: post.description,
+          url: pageUrl,
+          publishedTime: post.publishedAt,
+          modifiedTime: post.updatedAt ?? post.publishedAt,
+          authors: [post.author],
+          section: post.category,
+          images: [{ url: coverUrl, alt: post.coverAlt }],
+        }
+      : null,
+    twitter: pageUrl
+      ? {
+          card: "summary_large_image",
+          title: `${post.seoTitle} | ${site.name}`,
+          description: post.description,
+          images: [coverUrl],
+        }
+      : null,
   };
 }
 

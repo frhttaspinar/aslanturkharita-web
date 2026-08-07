@@ -34,8 +34,10 @@ export const hasSiteUrl = siteUrl !== null;
 /** Alan adı tanımlıysa absolute URL, tanımlı değilse null döndürür. */
 export function absoluteUrl(path = "/"): string | null {
   if (!siteUrl) return null;
+
   const suffix = path.startsWith("/") ? path : `/${path}`;
-  return suffix === "/" ? `${siteUrl}/` : `${siteUrl}${suffix}`;
+
+  return suffix === "/" ? siteUrl : `${siteUrl}${suffix}`;
 }
 
 /** metadataBase yalnızca gerçek alan adı varken tanımlanır. */
@@ -60,7 +62,7 @@ export function canonicalFor(path: string): Pick<Metadata, "alternates"> {
  * robots.txt tarafında tarama engellenmez; arama motorunun bu meta etiketi
  * görebilmesi için sayfayı tarayabiliyor olması gerekir.
  */
-export function robotsMeta(): Pick<Metadata, "robots"> {
+export function robotsMeta(): Pick<Metadata, "robots" | "openGraph" | "twitter"> {
   const indexable = hasSiteUrl;
 
   return {
@@ -75,5 +77,6 @@ export function robotsMeta(): Pick<Metadata, "robots"> {
         "max-video-preview": -1,
       },
     },
+    ...(indexable ? {} : { openGraph: null, twitter: null }),
   };
 }

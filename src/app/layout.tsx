@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { Manrope, Outfit } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFab from "@/components/WhatsAppFab";
@@ -9,23 +9,17 @@ import { absoluteUrl, metadataBase, robotsMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const archivo = Archivo({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-archivo",
-  display: "swap",
-});
-
-const plexSans = IBM_Plex_Sans({
+const outfit = Outfit({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600"],
-  variable: "--font-plex-sans",
+  variable: "--font-outfit",
   display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
+const manrope = Manrope({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500"],
-  variable: "--font-plex-mono",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-manrope",
   display: "swap",
 });
 
@@ -68,7 +62,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f8f7f4",
+  themeColor: "#fffdf9",
   width: "device-width",
   initialScale: 1,
 };
@@ -79,7 +73,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="tr" className={`${archivo.variable} ${plexSans.variable} ${plexMono.variable}`}>
+    <html lang="tr" className={`${outfit.variable} ${manrope.variable}`}>
       <body>
         {/*
           Scroll animasyonları yalnızca JavaScript çalışırken devreye girer.

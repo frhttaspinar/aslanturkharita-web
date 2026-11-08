@@ -49,8 +49,8 @@ export const site = {
   },
 
   logo: {
-    lockup: "/aslanturk-logo.png",
-    mark: "/aslanturk-logo-mark.png",
+    lockup: "/a1.png",
+    mark: "/aslanturk-mark-new.png",
   },
 } as const;
 

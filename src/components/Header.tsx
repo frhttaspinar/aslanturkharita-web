@@ -58,8 +58,8 @@ export default function Header() {
               className="brand__mark"
               src={site.logo.mark}
               alt={`${site.name} logosu`}
-              width={80}
-              height={80}
+              width={144}
+              height={104}
               priority
             />
             <span className="brand__text">

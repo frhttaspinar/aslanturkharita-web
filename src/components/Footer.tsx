@@ -20,10 +20,9 @@ export default function Footer() {
               className="footer__brand-mark"
               src={site.logo.lockup}
               alt={`${site.name} logosu`}
-              width={528}
-              height={549}
-              style={{ width: 96, height: "auto" }}
-              sizes="96px"
+              width={1254}
+              height={1254}
+              sizes="180px"
             />
           </span>
           <p className="footer__about">{about}</p>

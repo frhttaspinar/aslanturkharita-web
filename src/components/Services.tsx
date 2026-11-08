@@ -4,8 +4,12 @@ import Reveal from "./Reveal";
 
 export default function Services() {
   return (
-    <section className="section" id="hizmetler" aria-label="Hizmetlerimiz">
+    <section className="section" id="hizmetler" aria-labelledby="hizmetler-baslik">
       <div className="wrap">
+        <div className="section-head">
+          <h2 className="h2" id="hizmetler-baslik">Hizmetlerimiz</h2>
+        </div>
+
         <Reveal>
           <ul className="services__grid">
             {services.map((service) => (

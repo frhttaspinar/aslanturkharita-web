@@ -2,12 +2,12 @@ import Image from "next/image";
 import { site } from "@/lib/site";
 
 const facts = [
-  "Resmî LİHKAB ofisi",
+  "Harita mühendisliği ve arazi ölçümü",
   "Saha ve büro çalışması tek elden",
   "Amasya Merkez’de ofis",
 ];
 
-const intro = `Aslantürk Harita, ${site.yearsOfExperience} yıldır Amasya’da harita mühendisliği ve kadastro işlerini yürütüyor. Resmî LİHKAB ofisi olarak, taşınmaz sahiplerinin tapu ve kadastro süreçlerinde ihtiyaç duyduğu teknik ölçüm ve dosya çalışmalarını hazırlıyoruz.`;
+const intro = `Aslantürk Harita, ${site.yearsOfExperience} yıldır Amasya’da harita mühendisliği ve arazi ölçümü alanlarında çalışıyor. Taşınmaz sahiplerinin teknik ölçüm, değerlendirme ve dosya hazırlığı ihtiyaçlarında destek sağlıyoruz.`;
 
 export default function About() {
   return (

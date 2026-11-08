@@ -18,11 +18,11 @@ const addressLine = `${address.street}, ${address.postalCode} ${address.district
 
 export const site = {
   name: "Aslantürk Harita",
-  legalNote: "Resmî LİHKAB Ofisi",
+  legalNote: "Harita Mühendisliği Ofisi",
   tagline: "Amasya Harita ve Kadastro Hizmetleri",
   yearsOfExperience: 15,
   description:
-    "Aslantürk Harita, Amasya’da 15 yıllık tecrübesi ve resmî LİHKAB ofisi güvencesiyle harita mühendisliği, kadastro ve arazi ölçüm hizmetleri sunar.",
+    "Aslantürk Harita, Amasya’da 15 yıllık tecrübesiyle harita mühendisliği, arazi ölçümü ve taşınmazlara yönelik teknik danışmanlık hizmetleri sunar.",
 
   phone: {
     display: "0542 450 11 61",

@@ -4,7 +4,7 @@ import { services } from "@/lib/content";
 import { navItems, site } from "@/lib/site";
 import { FacebookIcon, InstagramIcon } from "./Icons";
 
-const about = `${site.yearsOfExperience} yıldır Amasya’da harita mühendisliği ve kadastro hizmetleri veren resmî LİHKAB ofisi.`;
+const about = `Amasya’da ${site.yearsOfExperience} yıllık deneyimle harita mühendisliği ve arazi ölçümü alanlarında teknik hizmet sunan ofis.`;
 
 export default function Footer() {
   const year = new Date().getFullYear();

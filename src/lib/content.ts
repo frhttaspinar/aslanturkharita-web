@@ -108,7 +108,7 @@ export const homeFaq = [
   {
     question: "LİHKAB nedir?",
     answer:
-      "Lisanslı harita kadastro bürosunun kısaltmasıdır. Kadastro teknik hizmetlerini, Tapu ve Kadastro Genel Müdürlüğü’nün belirlediği çerçevede yürütmek üzere lisans almış harita mühendislerince işletilir. Aslantürk Harita resmî bir LİHKAB ofisidir.",
+      "Lisanslı harita kadastro bürosunun kısaltmasıdır. Kadastro teknik hizmetlerini, Tapu ve Kadastro Genel Müdürlüğü’nün belirlediği çerçevede yürütmek üzere lisans almış harita mühendislerince işletilir. Her harita mühendisliği bürosu LİHKAB değildir.",
   },
   {
     question: "Aplikasyon işlemi ne için yapılır?",

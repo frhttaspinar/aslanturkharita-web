@@ -4,7 +4,7 @@ import { ArrowIcon, WhatsAppIcon } from "./Icons";
 
 const stats = [
   { value: `${site.yearsOfExperience} Yıl`, label: "Aktif saha tecrübesi" },
-  { value: "Resmî LİHKAB", label: "Lisanslı harita ofisi" },
+  { value: "Harita Mühendisliği", label: "Arazi ve proje ölçümleri" },
   { value: "Amasya Merkez", label: "Hızırpaşa, Karacaoğlan Cd." },
 ];
 
@@ -22,9 +22,9 @@ export default function Hero() {
           </h1>
 
           <p className="hero__text rise rise-3">
-            Aslantürk Harita, {site.yearsOfExperience} yıllık tecrübesi ve resmî LİHKAB ofisi
-            güvencesiyle harita mühendisliği, kadastro ve taşınmaz işlemlerinizde profesyonel
-            çözümler sunar.
+            Aslantürk Harita, {site.yearsOfExperience} yıllık tecrübesiyle harita mühendisliği,
+            arazi ölçümü ve taşınmazlarınıza yönelik teknik çalışmalarda profesyonel destek
+            sunar.
           </p>
 
           <div className="btn-row rise rise-3">

@@ -58,12 +58,13 @@ export default function Header() {
               className="brand__mark"
               src={site.logo.mark}
               alt={`${site.name} logosu`}
-              width={80}
-              height={80}
+              width={144}
+              height={104}
               priority
             />
             <span className="brand__text">
               <span className="brand__name">Aslantürk Harita</span>
+              <span className="brand__engineer">{site.engineerName}</span>
               <span className="brand__note">{site.legalNote}</span>
             </span>
           </Link>

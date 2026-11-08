@@ -19,6 +19,7 @@ const addressLine = `${address.street}, ${address.postalCode} ${address.district
 export const site = {
   name: "Aslantürk Harita",
   legalNote: "Resmî LİHKAB Ofisi",
+  engineerName: "Harita Mühendisi Nazım Aslantürk",
   tagline: "Amasya Harita ve Kadastro Hizmetleri",
   yearsOfExperience: 15,
   description:
@@ -62,7 +63,6 @@ export const navItems = [
   { label: "Ana Sayfa", href: "/" },
   { label: "Hizmetler", href: "/#hizmetler" },
   { label: "Hakkımızda", href: "/#hakkimizda" },
-  { label: "Çalışmalarımız", href: "/#calismalarimiz" },
   { label: "Blog", href: "/blog" },
   { label: "İletişim", href: "/#iletisim" },
 ] as const;

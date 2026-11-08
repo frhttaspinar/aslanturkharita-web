@@ -25,6 +25,7 @@ export default function Footer() {
               sizes="180px"
             />
           </span>
+          <p className="footer__engineer">{site.engineerName}</p>
           <p className="footer__about">{about}</p>
           <div className="footer__socials">
             <a

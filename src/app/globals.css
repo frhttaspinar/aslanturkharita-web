@@ -419,6 +419,16 @@ section[id] {
   white-space: nowrap;
 }
 
+.brand__engineer {
+  font-family: var(--font-body);
+  font-size: 0.64rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.005em;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
 .brand__note {
   font-family: var(--font-body);
   font-size: 0.62rem;
@@ -441,6 +451,10 @@ section[id] {
 
   .brand__name {
     font-size: 0.95rem;
+  }
+
+  .brand__engineer {
+    font-size: 0.58rem;
   }
 
   .brand__note {
@@ -1096,70 +1110,6 @@ section[id] {
   }
 }
 
-/* --------------------------------------------------------------- galeri -- */
-
-.gallery {
-  background: var(--stone);
-  border-block: 1px solid var(--line);
-}
-
-.gallery__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(12px, 1.8vw, 22px);
-}
-
-.shot {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 8px 8px 12px;
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 10px 26px rgba(23, 10, 46, 0.04);
-}
-
-.shot__frame {
-  position: relative;
-  aspect-ratio: 3 / 4;
-  border-radius: calc(var(--radius) - 2px);
-  overflow: hidden;
-  background: var(--stone-deep);
-}
-
-.shot__frame img {
-  object-fit: cover;
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.shot:hover .shot__frame img {
-  transform: scale(1.03);
-}
-
-.shot__caption {
-  padding-inline: 4px;
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--muted);
-  line-height: 1.45;
-}
-
-@media (min-width: 700px) {
-  .gallery__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 1000px) {
-  .gallery__grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
 /* ------------------------------------------------------------------ cta -- */
 
 .cta {
@@ -1366,6 +1316,15 @@ a.contact__value:hover {
   margin: -34px -8px -28px;
 }
 
+.footer__engineer {
+  margin-top: 15px;
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--paper);
+}
+
 .footer__about {
   margin-top: 18px;
   max-width: 30rem;
@@ -1565,24 +1524,12 @@ a.contact__value:hover {
   padding-bottom: clamp(18px, 2vw, 22px);
 }
 
-.post-card__frame {
-  position: relative;
-  display: block;
-  aspect-ratio: 16 / 10;
-  background: var(--stone-deep);
-  overflow: hidden;
-}
-
-.post-card__frame img {
-  object-fit: cover;
-}
-
 .post-card__meta {
   display: flex;
   flex-wrap: wrap;
   gap: 6px 14px;
   align-items: baseline;
-  padding: 18px clamp(18px, 2vw, 22px) 0;
+  padding: 24px clamp(18px, 2vw, 22px) 0;
   font-family: var(--font-body);
   font-size: 0.7rem;
   font-weight: 600;
@@ -1629,10 +1576,6 @@ a.contact__value:hover {
       transform 0.26s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  .post-card__frame img {
-    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
   .post-card__more svg {
     transition: transform 0.25s ease;
   }
@@ -1645,10 +1588,6 @@ a.contact__value:hover {
 
   .post-card:hover .post-card__more {
     color: var(--bubblegum-deep);
-  }
-
-  .post-card:hover .post-card__frame img {
-    transform: scale(1.03);
   }
 
   .post-card:hover .post-card__more svg {
@@ -2102,7 +2041,6 @@ a.contact__value:hover {
   .pafta,
   .svc,
   .step,
-  .shot,
   .post-card,
   .contact__list,
   .btn {

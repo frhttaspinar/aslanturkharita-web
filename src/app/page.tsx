@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import About from "@/components/About";
 import CallToAction from "@/components/CallToAction";
 import Contact from "@/components/Contact";
-import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
 import HomeFaq from "@/components/HomeFaq";
 import Insights from "@/components/Insights";
@@ -34,7 +33,6 @@ export default function Home() {
       <Services />
       <About />
       <Process />
-      <Gallery />
       <Insights />
       <HomeFaq />
       <CallToAction />

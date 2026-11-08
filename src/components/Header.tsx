@@ -64,6 +64,7 @@ export default function Header() {
             />
             <span className="brand__text">
               <span className="brand__name">Aslantürk Harita</span>
+              <span className="brand__engineer">{site.engineerName}</span>
               <span className="brand__note">{site.legalNote}</span>
             </span>
           </Link>

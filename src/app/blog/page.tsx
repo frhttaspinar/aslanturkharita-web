@@ -73,8 +73,8 @@ export default function BlogIndexPage() {
           </div>
 
           <div className="post-grid">
-            {blogPosts.map((post, index) => (
-              <BlogCard key={post.slug} post={post} priority={index === 0} />
+            {blogPosts.map((post) => (
+              <BlogCard key={post.slug} post={post} />
             ))}
           </div>
         </div>

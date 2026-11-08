@@ -4,18 +4,8 @@ import Reveal from "./Reveal";
 
 export default function Services() {
   return (
-    <section className="section" id="hizmetler">
+    <section className="section" id="hizmetler" aria-label="Hizmetlerimiz">
       <div className="wrap">
-        <div className="section-head">
-          <span className="eyebrow">Hizmetler</span>
-          <h2 className="h2">Taşınmazınızla ilgili teknik işlemler</h2>
-          <p className="lede">
-            Aplikasyondan cins değişikliğine, imar uygulamalarından arazi ölçümüne kadar harita
-            mühendisliği ve kadastro işlerini tek elden yürütüyoruz. Hangi işlemin gerektiğinden
-            emin değilseniz arayın, birlikte netleştirelim.
-          </p>
-        </div>
-
         <Reveal>
           <ul className="services__grid">
             {services.map((service) => (

@@ -326,9 +326,9 @@ const posts: BlogPostInput[] = [
     title: "LİHKAB Nedir? Hangi İşlemleri Yapar?",
     seoTitle: "LİHKAB Nedir? Hangi İşlemleri Yapar?",
     description:
-      "LİHKAB (lisanslı harita kadastro bürosu) nedir, hangi kadastro teknik hizmetlerini yürütür ve resmî bir LİHKAB ofisiyle çalışmak neden önemlidir?",
+      "LİHKAB (lisanslı harita kadastro bürosu) nedir, hangi kadastro teknik hizmetlerini yürütür ve lisanslı büroların görevleri nelerdir?",
     excerpt:
-      "Lisanslı harita kadastro bürolarının rolünü, yürüttüğü başlıca işlemleri ve resmî bir ofisle çalışmanın ne anlama geldiğini açıklıyoruz.",
+      "Lisanslı harita kadastro bürolarının rolünü, yürüttüğü başlıca işlemleri ve yetki kapsamlarını açıklıyoruz.",
     publishedAt: "2026-08-03",
     author: "Aslantürk Harita",
     category: "Rehber",
@@ -400,7 +400,7 @@ const posts: BlogPostInput[] = [
           " inceleyebilirsiniz.",
         ],
       },
-      { type: "heading", level: 2, text: "Resmî bir LİHKAB ofisiyle çalışmak" },
+      { type: "heading", level: 2, text: "LİHKAB bürolarında yetki ve süreç" },
       {
         type: "paragraph",
         content: [
@@ -413,11 +413,11 @@ const posts: BlogPostInput[] = [
           "Taşınmaz işlemlerinde ölçünün doğruluğu, sonradan telafisi zor sonuçlar doğurabilecek bir konudur. Yanlış konumlandırılmış bir sınır; yapı, duvar veya proje kararlarını doğrudan etkiler.",
         ],
       },
-      { type: "heading", level: 2, text: "Aslantürk Harita: Amasya’da resmî LİHKAB ofisi" },
+      { type: "heading", level: 2, text: "Aslantürk Harita: Amasya’da harita mühendisliği" },
       {
         type: "paragraph",
         content: [
-          "Aslantürk Harita, 15 yıldır Amasya’da harita mühendisliği ve kadastro işlerini yürüten resmî bir LİHKAB ofisidir. Saha ölçümünü ve büro çalışmasını tek elden yapıyor, dosyayı ilgili kuruma teslim edilebilir hâle getirdikten sonra kapatıyoruz. Hangi işlemin gerektiğinden emin değilseniz, ada–parsel bilgisiyle ",
+          "Aslantürk Harita, 15 yıldır Amasya’da harita mühendisliği ve arazi ölçümü alanlarında teknik çalışmalar yürütmektedir. Ölçüm, değerlendirme ve dosya hazırlığı ihtiyaçlarınız hakkında bilgi almak isterseniz, ada–parsel bilgisiyle ",
           { text: "bize ulaşın", href: "/#iletisim" },
           "; birlikte netleştirelim.",
         ],
@@ -446,7 +446,7 @@ const posts: BlogPostInput[] = [
       {
         question: "Her harita bürosu LİHKAB mıdır?",
         answer:
-          "Hayır. LİHKAB, mevzuatta tanımlı şartları sağlayarak lisans almış bürolar için kullanılan bir tanımdır. Aslantürk Harita resmî bir LİHKAB ofisidir.",
+          "Hayır. LİHKAB, mevzuatta tanımlı şartları sağlayarak lisans almış bürolar için kullanılan bir tanımdır. Her harita mühendisliği ofisi LİHKAB yetkisine sahip değildir.",
       },
     ],
   },

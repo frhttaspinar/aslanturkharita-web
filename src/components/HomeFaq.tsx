@@ -9,7 +9,7 @@ export default function HomeFaq() {
           <span className="eyebrow">Sık sorulan sorular</span>
           <h2 className="h2">Kısa cevaplar</h2>
           <p className="lede">
-            Daha ayrıntılı bilgi için Bilgi Merkezi yazılarımıza bakabilir, kendi taşınmazınız
+            Daha ayrıntılı bilgi için blog yazılarımıza bakabilir, kendi taşınmazınız
             için doğrudan bize ulaşabilirsiniz.
           </p>
         </div>

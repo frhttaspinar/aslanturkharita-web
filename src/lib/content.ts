@@ -67,39 +67,6 @@ export const services: Service[] = [
   },
 ];
 
-export type ProcessStep = {
-  step: string;
-  title: string;
-  description: string;
-};
-
-export const processSteps: ProcessStep[] = [
-  {
-    step: "01",
-    title: "İletişim ve ihtiyaç analizi",
-    description:
-      "Telefon ya da WhatsApp’tan durumu anlatın; hangi işlemin gerektiğini ve nasıl ilerleyeceğimizi birlikte netleştirelim.",
-  },
-  {
-    step: "02",
-    title: "Evrak ve taşınmaz incelemesi",
-    description:
-      "Tapu, ada–parsel ve varsa proje bilgilerini inceliyor, eksik evrakı işe başlamadan önce bildiriyoruz.",
-  },
-  {
-    step: "03",
-    title: "Saha ölçümü ve teknik çalışma",
-    description:
-      "Araziye çıkıp ölçümü yapıyor, verileri büroda hesaplayarak teknik dosyayı hazırlıyoruz.",
-  },
-  {
-    step: "04",
-    title: "İşlemin tamamlanması ve teslim",
-    description:
-      "İşlemi ilgili kurum nezdinde sonuçlandırıp belgeleri size teslim ediyoruz.",
-  },
-];
-
 /**
  * Ana sayfadaki görünür SSS. Cevaplar blog yazılarındaki cümlelerin kopyası
  * değildir; kesin süre veya sonuç garantisi verilmez.

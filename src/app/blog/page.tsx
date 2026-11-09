@@ -67,7 +67,7 @@ export default function BlogIndexPage() {
           </nav>
 
           <div className="section-head">
-            <span className="eyebrow">Bilgi Merkezi</span>
+            <span className="eyebrow">Blog</span>
             <h1 className="h2">{blogMeta.title}</h1>
             <p className="lede">{blogMeta.description}</p>
           </div>

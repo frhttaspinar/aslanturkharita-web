@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { site } from "@/lib/site";
 
 const facts = [
@@ -13,17 +12,6 @@ export default function About() {
   return (
     <section className="section about" id="hakkimizda">
       <div className="wrap about__inner">
-        <figure className="pafta about__figure">
-          <div className="about__img-wrap">
-            <Image
-              src="/tarim-arazisi-olcum.jpg"
-              alt="Tarım arazisinde GNSS direği ve el terminaliyle alınan nokta ölçümü"
-              fill
-              sizes="(max-width: 899px) 92vw, 38vw"
-            />
-          </div>
-        </figure>
-
         <div className="about__body">
           <span className="eyebrow">Hakkımızda</span>
           <h2 className="h2">{`${site.yearsOfExperience} yıldır aynı işi yapıyoruz: doğru ölçmek`}</h2>

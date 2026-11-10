@@ -640,28 +640,46 @@ section[id] {
 
 .hero__banner {
   position: relative;
+  display: grid;
+  place-items: center;
   width: 100%;
-  aspect-ratio: 1199 / 553;
-  max-height: 520px;
   overflow: hidden;
   background: var(--stone);
   border-bottom: 1px solid var(--line);
 }
 
-.hero__banner-img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 58%;
+/* Büyük ekranlarda fotoğrafın yanında kalan alanı aynı kareden yumuşakça doldur. */
+.hero__banner::before {
+  content: "";
+  position: absolute;
+  inset: -28px;
+  background: url("/2.jpg") center / cover no-repeat;
+  filter: blur(28px);
+  opacity: 0.38;
+  pointer-events: none;
 }
 
+/* Sabit yükseklik yok: fotoğrafın 1199/553 oranı korunur, hiçbir kısmı kırpılmaz. */
+.hero__banner-img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: min(100%, 1360px);
+  height: auto;
+  object-fit: contain;
+}
+
+/* Eski soldan sağa blur efekti görseli kırpmadan korunur. */
 .hero__banner-blur {
   position: absolute;
-  inset: 0;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: min(100%, 1360px);
+  height: auto;
   pointer-events: none;
   filter: blur(4px);
-  transform: scale(1.015);
+  transform: translate(-50%, -50%);
   -webkit-mask-image: linear-gradient(
     90deg,
     transparent 0%,
@@ -712,13 +730,6 @@ section[id] {
 @media (max-width: 559px) {
   .hero__btn-row .btn {
     flex: 1 1 100%;
-  }
-}
-
-@media (min-width: 900px) {
-  .hero__banner {
-    height: clamp(380px, 38vw, 520px);
-    aspect-ratio: auto;
   }
 }
 

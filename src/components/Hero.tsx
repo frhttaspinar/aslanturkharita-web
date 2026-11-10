@@ -18,7 +18,7 @@ export default function Hero() {
           height={553}
           priority
           fetchPriority="high"
-          sizes="100vw"
+          sizes="(min-width: 1360px) 1360px, 100vw"
         />
         <Image
           className="hero__banner-img hero__banner-blur"
@@ -28,7 +28,7 @@ export default function Hero() {
           width={1199}
           height={553}
           priority
-          sizes="100vw"
+          sizes="(min-width: 1360px) 1360px, 100vw"
         />
       </div>
 

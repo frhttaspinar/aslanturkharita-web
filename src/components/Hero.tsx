@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { services } from "@/lib/content";
 import { site } from "@/lib/site";
 import { ArrowIcon, WhatsAppIcon } from "./Icons";
 
@@ -9,27 +10,32 @@ export default function Hero() {
         Amasya’da güvenilir harita ve kadastro hizmetleri
       </h1>
 
-      <div className="hero__banner">
-        <Image
-          className="hero__banner-img"
-          src="/2.jpg"
-          alt="Amasya Kral Kaya Mezarları, tarihi Yalıboyu evleri, Yeşilırmak köprüsü ve Harşena Dağı manzarası"
-          width={564}
-          height={705}
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-        />
-        <Image
-          className="hero__banner-img hero__banner-blur"
-          src="/2.jpg"
-          alt=""
-          aria-hidden="true"
-          width={564}
-          height={705}
-          priority
-          sizes="100vw"
-        />
+      <div className="wrap hero__top">
+        <figure className="hero__media">
+          <Image
+            className="hero__img"
+            src="/2.jpg"
+            alt="Amasya Kral Kaya Mezarları, tarihi Yalıboyu evleri, Yeşilırmak köprüsü ve suya yansıyan manzara"
+            width={564}
+            height={705}
+            priority
+            fetchPriority="high"
+            sizes="(max-width: 899px) 92vw, 460px"
+          />
+        </figure>
+
+        <div className="hero__services" aria-labelledby="hero-hizmetler-baslik">
+          <h2 className="hero__services-title" id="hero-hizmetler-baslik">
+            Hizmetlerimiz
+          </h2>
+          <ul className="hero__services-list">
+            {services.map((service) => (
+              <li className="hero__services-item" key={service.id}>
+                {service.title}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       <div className="wrap hero__actions">

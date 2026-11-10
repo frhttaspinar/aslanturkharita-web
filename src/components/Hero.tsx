@@ -12,21 +12,21 @@ export default function Hero() {
       <div className="hero__banner">
         <Image
           className="hero__banner-img"
-          src="/amasya-banner.webp"
-          alt="Amasya Yeşilırmak kıyısı, tarihi Yalıboyu evleri ve Harşena Dağı panoraması"
-          width={1024}
-          height={363}
+          src="/2.jpg"
+          alt="Amasya Kral Kaya Mezarları, tarihi Yalıboyu evleri, Yeşilırmak köprüsü ve Harşena Dağı manzarası"
+          width={564}
+          height={705}
           priority
           fetchPriority="high"
           sizes="100vw"
         />
         <Image
           className="hero__banner-img hero__banner-blur"
-          src="/amasya-banner.webp"
+          src="/2.jpg"
           alt=""
           aria-hidden="true"
-          width={1024}
-          height={363}
+          width={564}
+          height={705}
           priority
           sizes="100vw"
         />

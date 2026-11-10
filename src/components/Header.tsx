@@ -84,10 +84,7 @@ export default function Header() {
             rel="noopener noreferrer"
           >
             <WhatsAppIcon />
-            <span className="whatsapp-contact__text">
-              <span>WhatsApp’tan Ulaşın</span>
-              <strong>{site.phone.display}</strong>
-            </span>
+            <span className="header__contact-number">{site.phone.display}</span>
           </a>
 
           <button
@@ -127,10 +124,7 @@ export default function Header() {
             onClick={close}
           >
             <WhatsAppIcon />
-            <span className="whatsapp-contact__text">
-              <span>WhatsApp’tan Ulaşın</span>
-              <strong>{site.phone.display}</strong>
-            </span>
+            <span className="header__contact-number">{site.phone.display}</span>
           </a>
           <a className="btn btn--quiet" href={site.phone.href} onClick={close}>
             <PhoneIcon />

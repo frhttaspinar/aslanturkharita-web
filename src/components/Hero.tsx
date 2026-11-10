@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { site } from "@/lib/site";
 import { services } from "@/lib/content";
+import { site } from "@/lib/site";
 import { ArrowIcon, WhatsAppIcon } from "./Icons";
 
 export default function Hero() {
@@ -10,40 +10,32 @@ export default function Hero() {
         Amasya’da güvenilir harita ve kadastro hizmetleri
       </h1>
 
-      <div className="hero__banner">
-        <div className="hero__photo">
+      <div className="wrap hero__top">
+        <figure className="hero__media">
           <Image
-            className="hero__banner-img"
+            className="hero__img"
             src="/2.jpg"
-            alt="Amasya yazısı, Harşena Dağı, Kral Kaya Mezarları ve tarihi Yalıboyu evleri panoraması"
-            width={1199}
-            height={553}
+            alt="Amasya Kral Kaya Mezarları, tarihi Yalıboyu evleri, Yeşilırmak köprüsü ve suya yansıyan manzara"
+            width={564}
+            height={705}
             priority
             fetchPriority="high"
-            sizes="(min-width: 1845px) 1199px, (min-width: 1240px) 65vw, 100vw"
+            sizes="(max-width: 899px) 92vw, 460px"
           />
-          <Image
-            className="hero__banner-img hero__banner-blur"
-            src="/2.jpg"
-            alt=""
-            aria-hidden="true"
-            width={1199}
-            height={553}
-            priority
-            sizes="(min-width: 1845px) 1199px, (min-width: 1240px) 65vw, 100vw"
-          />
-        </div>
+        </figure>
 
-        <aside className="hero__services" aria-labelledby="hero-services-title">
-          <h2 className="hero__services-title" id="hero-services-title">
-            HİZMETLERİMİZ
+        <div className="hero__services" aria-labelledby="hero-hizmetler-baslik">
+          <h2 className="hero__services-title" id="hero-hizmetler-baslik">
+            Hizmetlerimiz
           </h2>
-          <ul className="hero__service-list">
+          <ul className="hero__services-list">
             {services.map((service) => (
-              <li key={service.id}>{service.title}</li>
+              <li className="hero__services-item" key={service.id}>
+                {service.title}
+              </li>
             ))}
           </ul>
-        </aside>
+        </div>
       </div>
 
       <div className="wrap hero__actions">

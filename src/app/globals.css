@@ -638,103 +638,70 @@ section[id] {
   background: var(--paper);
 }
 
-.hero__banner {
+.hero__top {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  width: 100%;
-  border-bottom: 1px solid var(--line);
-  background: var(--paper);
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+  padding-top: clamp(24px, 3.5vw, 48px);
 }
 
-.hero__photo {
-  position: relative;
+.hero__media {
+  margin: 0;
+  justify-self: center;
   width: 100%;
-  min-width: 0;
-  overflow: hidden;
-  align-self: start;
+  max-width: 460px;
+  padding: 10px;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 48px rgba(23, 10, 46, 0.08);
 }
 
-/* 2.jpg orijinal 1199 × 553 oranındadır; hiçbir noktadan kırpılmaz. */
-.hero__banner-img {
+.hero__img {
   display: block;
   width: 100%;
   height: auto;
   object-fit: contain;
-}
-
-.hero__banner-blur {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  filter: blur(4px);
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    transparent 35%,
-    rgba(0, 0, 0, 0.28) 54%,
-    rgba(0, 0, 0, 0.72) 78%,
-    #000 100%
-  );
-  mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    transparent 35%,
-    rgba(0, 0, 0, 0.28) 54%,
-    rgba(0, 0, 0, 0.72) 78%,
-    #000 100%
-  );
-}
-
-.hero__services {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: clamp(14px, 1.8vw, 24px);
-  padding: clamp(22px, 2.8vw, 48px);
-  background: linear-gradient(135deg, var(--paper) 0%, var(--stone) 100%);
+  border-radius: 10px;
 }
 
 .hero__services-title {
-  color: var(--accent);
   font-family: var(--font-display);
-  font-size: clamp(1.12rem, 0.92rem + 0.65vw, 1.55rem);
-  font-weight: 600;
-  letter-spacing: 0.045em;
+  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
 }
 
-.hero__service-list {
+.hero__services-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 9px 20px;
+  grid-template-columns: minmax(0, 1fr);
+  margin-top: clamp(16px, 2vw, 24px);
+  border-top: 1px solid var(--line);
 }
 
-.hero__service-list li {
-  min-width: 0;
-  padding-left: 14px;
-  border-left: 2px solid var(--bubblegum-deep);
+.hero__services-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 2px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 0.94rem + 0.3vw, 1.14rem);
+  font-weight: 500;
   color: var(--ink-2);
-  font-size: clamp(0.86rem, 0.76rem + 0.32vw, 1.06rem);
-  line-height: 1.35;
 }
 
-@media (max-width: 599px) {
-  .hero__service-list {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (min-width: 1240px) {
-  .hero__banner {
-    grid-template-columns: minmax(0, min(65%, 1199px)) minmax(0, 1fr);
-  }
-
-  .hero__service-list {
-    grid-template-columns: 1fr;
-    gap: clamp(6px, 0.65vw, 12px);
-  }
+.hero__services-item::before {
+  content: "";
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border: 1.5px solid var(--bubblegum-deep);
+  background: var(--pink-soft);
+  transform: rotate(45deg);
 }
 
 .hero__actions {
@@ -769,6 +736,19 @@ section[id] {
 @media (max-width: 559px) {
   .hero__btn-row .btn {
     flex: 1 1 100%;
+  }
+}
+
+@media (min-width: 560px) and (max-width: 899px) {
+  .hero__services-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero__top {
+    grid-template-columns: minmax(0, 460px) minmax(0, 1fr);
   }
 }
 

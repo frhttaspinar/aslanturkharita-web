@@ -639,47 +639,36 @@ section[id] {
 }
 
 .hero__banner {
-  position: relative;
   display: grid;
-  place-items: center;
+  grid-template-columns: minmax(0, 1fr);
   width: 100%;
-  overflow: hidden;
-  background: var(--stone);
   border-bottom: 1px solid var(--line);
+  background: var(--paper);
 }
 
-/* Büyük ekranlarda fotoğrafın yanında kalan alanı aynı kareden yumuşakça doldur. */
-.hero__banner::before {
-  content: "";
-  position: absolute;
-  inset: -28px;
-  background: url("/2.jpg") center / cover no-repeat;
-  filter: blur(28px);
-  opacity: 0.38;
-  pointer-events: none;
-}
-
-/* Sabit yükseklik yok: fotoğrafın 1199/553 oranı korunur, hiçbir kısmı kırpılmaz. */
-.hero__banner-img {
+.hero__photo {
   position: relative;
-  z-index: 1;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  align-self: start;
+}
+
+/* 2.jpg orijinal 1199 × 553 oranındadır; hiçbir noktadan kırpılmaz. */
+.hero__banner-img {
   display: block;
-  width: min(100%, 1360px);
+  width: 100%;
   height: auto;
   object-fit: contain;
 }
 
-/* Eski soldan sağa blur efekti görseli kırpmadan korunur. */
 .hero__banner-blur {
   position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  width: min(100%, 1360px);
-  height: auto;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   filter: blur(4px);
-  transform: translate(-50%, -50%);
   -webkit-mask-image: linear-gradient(
     90deg,
     transparent 0%,
@@ -696,6 +685,56 @@ section[id] {
     rgba(0, 0, 0, 0.72) 78%,
     #000 100%
   );
+}
+
+.hero__services {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(14px, 1.8vw, 24px);
+  padding: clamp(22px, 2.8vw, 48px);
+  background: linear-gradient(135deg, var(--paper) 0%, var(--stone) 100%);
+}
+
+.hero__services-title {
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: clamp(1.12rem, 0.92rem + 0.65vw, 1.55rem);
+  font-weight: 600;
+  letter-spacing: 0.045em;
+}
+
+.hero__service-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px 20px;
+}
+
+.hero__service-list li {
+  min-width: 0;
+  padding-left: 14px;
+  border-left: 2px solid var(--bubblegum-deep);
+  color: var(--ink-2);
+  font-size: clamp(0.86rem, 0.76rem + 0.32vw, 1.06rem);
+  line-height: 1.35;
+}
+
+@media (max-width: 599px) {
+  .hero__service-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1240px) {
+  .hero__banner {
+    grid-template-columns: minmax(0, min(65%, 1199px)) minmax(0, 1fr);
+  }
+
+  .hero__service-list {
+    grid-template-columns: 1fr;
+    gap: clamp(6px, 0.65vw, 12px);
+  }
 }
 
 .hero__actions {

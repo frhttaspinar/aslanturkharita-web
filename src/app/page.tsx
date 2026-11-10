@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import HomeFaq from "@/components/HomeFaq";
@@ -28,7 +27,6 @@ export default function Home() {
     <>
       <Hero />
       <Services />
-      <About />
       <HomeFaq />
       <Contact />
       <JsonLd data={graph} />

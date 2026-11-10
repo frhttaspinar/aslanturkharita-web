@@ -33,6 +33,10 @@ export default function Hero() {
       </div>
 
       <div className="wrap hero__actions">
+        <p className="hero__intro">
+          <strong>Aslantürk Harita</strong>, {site.yearsOfExperience} yıldır Amasya’da harita
+          mühendisliği ve kadastro alanında çalışıyor.
+        </p>
         <div className="btn-row hero__btn-row">
           <a
             className="btn btn--primary"

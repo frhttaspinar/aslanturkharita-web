@@ -673,12 +673,32 @@ section[id] {
 }
 
 .hero__actions {
-  padding-block: clamp(18px, 2.2vw, 26px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(16px, 2.8vw, 36px);
+  padding-block: clamp(20px, 3vw, 34px);
+}
+
+.hero__intro {
+  max-width: 50rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 0.9rem + 0.5vw, 1.32rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+.hero__intro strong {
+  font-weight: 600;
+  color: var(--accent);
 }
 
 .hero__btn-row {
   margin-top: 0;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 12px;
 }
 
 @media (max-width: 559px) {
@@ -691,6 +711,17 @@ section[id] {
   .hero__banner {
     height: clamp(360px, 35.45vw, 450px);
     aspect-ratio: auto;
+  }
+}
+
+@media (min-width: 1000px) {
+  .hero__actions {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .hero__btn-row {
+    flex-wrap: nowrap;
+    justify-content: flex-end;
   }
 }
 
@@ -813,64 +844,6 @@ section[id] {
 @media (min-width: 1000px) {
   .services__grid {
     grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* ------------------------------------------------------------ hakkımızda -- */
-
-.about {
-  background: linear-gradient(180deg, var(--stone) 0%, var(--paper) 100%);
-  border-block: 1px solid var(--line);
-}
-
-.about__inner {
-  display: block;
-}
-
-.about__body {
-  max-width: 56rem;
-}
-
-.about__body p {
-  margin-top: 18px;
-  color: var(--muted);
-  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.06rem);
-  line-height: 1.74;
-  max-width: 50rem;
-}
-
-.about__facts {
-  display: grid;
-  gap: 10px;
-  margin-top: 28px;
-}
-
-.about__fact {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  padding-top: 14px;
-  border-top: 1px solid var(--line);
-  font-size: 0.94rem;
-  font-weight: 500;
-  color: var(--ink);
-}
-
-.about__fact::before {
-  content: "";
-  flex: none;
-  width: 7px;
-  height: 7px;
-  border: 1.5px solid var(--bubblegum-deep);
-  background: var(--pink-soft);
-  transform: rotate(45deg);
-  translate: 0 -1px;
-}
-
-@media (min-width: 700px) {
-  .about__facts {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
   }
 }
 

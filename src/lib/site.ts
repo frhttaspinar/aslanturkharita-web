@@ -62,7 +62,6 @@ export const site = {
 export const navItems = [
   { label: "Ana Sayfa", href: "/" },
   { label: "Hizmetler", href: "/#hizmetler" },
-  { label: "Hakkımızda", href: "/#hakkimizda" },
   { label: "Blog", href: "/blog" },
   { label: "İletişim", href: "/#iletisim" },
 ] as const;
